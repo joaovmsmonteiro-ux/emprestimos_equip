@@ -1,7 +1,7 @@
-package com.controller;
+package com.EmprestimoEquip.emprestimo_equip.controller;
 
-import com.business.UsuarioService; //Acesso ao UsuarioService
-import com.infraestructure.entitys.Usuario;//Acesso a entidade/classe Usuario
+import com.EmprestimoEquip.emprestimo_equip.business.UsuarioService;
+import com.EmprestimoEquip.emprestimo_equip.infraestructure.entitys.Usuario;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

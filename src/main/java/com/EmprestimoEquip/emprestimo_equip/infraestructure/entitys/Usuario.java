@@ -1,4 +1,4 @@
-package com.infraestructure.entitys;
+package com.EmprestimoEquip.emprestimo_equip.infraestructure.entitys;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,9 +1,10 @@
-package com.business;
+package com.EmprestimoEquip.emprestimo_equip.business;
 
-import com.infraestructure.entitys.Usuario;
-import com.infraestructure.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.EmprestimoEquip.emprestimo_equip.infraestructure.entitys.Usuario;
+import com.EmprestimoEquip.emprestimo_equip.infraestructure.repository.UsuarioRepository;
 
 @Service 
 public class UsuarioService {

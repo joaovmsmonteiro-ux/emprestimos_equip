@@ -1,10 +1,10 @@
-package com.infraestructure.repository;
-import com.infraestructure.entitys.Usuario;
-
+package com.EmprestimoEquip.emprestimo_equip.infraestructure.repository;
 import jakarta.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
+
+import com.EmprestimoEquip.emprestimo_equip.infraestructure.entitys.Usuario;
 
 import java.util.Optional;
 
