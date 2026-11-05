@@ -11,11 +11,19 @@ import java.util.Optional;
                                                  /*Tabela "usuarios" */
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
                                                                   /**Tipo do ID */
+
+    /* Dados usuário */
     Optional<Usuario> findById(Integer id);
     Optional<Usuario> findByNome(String nome);
-    Optional<Usuario> findByEmail(String email);
+    Optional<Usuario> findByEmail(String email_usuario);
+    /* Dados gestor */
+    Optional<Usuario> findByNome_Gestor(String nome_gestor);
+    Optional<Usuario> findByEmail_Gestor(String email_gestor);
+
 
     /*Não pode deletar esse e-mail se ocorrer algum erro*/
+    
+    /* Dados usuário */
     @Transactional 
     @Modifying 
     void deleteById(Integer id);
@@ -26,5 +34,14 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     @Transactional 
     @Modifying
-    void deleteByEmail(String email);
+    void deleteByEmail(String email_usuario);
+
+    /* Dados gestor */
+    @Transactional 
+    @Modifying 
+    void deleteByNome_Gestor(String nome_gestor);
+
+    @Transactional 
+    @Modifying
+    void deleteByEmail_Gestor(String email_gestor);
 }
