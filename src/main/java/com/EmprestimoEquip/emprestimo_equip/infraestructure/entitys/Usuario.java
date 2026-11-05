@@ -18,28 +18,20 @@ import lombok.*;
 @Data 
 public class Usuario {
 
-/*CRIAÇÃO DOS ATRIBUTOS/COLUNAS DA TABELA/CLASSE "usuarios" */
-
-
-    /**atribui varíavel ID padrão do sistema */
     @Id
-    /**Gera valor automático para o ID */
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    /**Criação da coluna "nome" */
     @Column (name = "Nome", length = 100)
     private String nome;
 
-    /**Criação da coluna "email_usuario" */
+    // Alterado para camelCase (o banco continuará salvando como email_usuario se quiser, ou ajuste o name)
     @Column (name = "Email_Usuario", length = 100)
-    private String email_usuario;
+    private String emailUsuario;
 
-    /*Criação da coluna "nome_gestor" */
     @Column (name = "Nome_Gestor", length = 100)
-    private String nome_gestor;
+    private String nomeGestor;
 
-    /*Criação da coluna "email_gestor" */
     @Column (name = "Email_Gestor", length = 100)
-    private String email_gestor;
+    private String emailGestor;
 }

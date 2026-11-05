@@ -1,11 +1,9 @@
 package com.EmprestimoEquip.emprestimo_equip.business;
 
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.EmprestimoEquip.emprestimo_equip.infraestructure.entitys.Usuario;
 import com.EmprestimoEquip.emprestimo_equip.infraestructure.repository.UsuarioRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service 
 public class UsuarioService {
@@ -32,20 +30,8 @@ public class UsuarioService {
         );
     }
 
-    public Usuario buscarUsuarioPorEmail(String email_usuario) {
-        return repository.findByEmail(email_usuario).orElseThrow(
-            () -> new RuntimeException("Email não encontrado")
-        );
-    }
-
-    public Usuario buscarUsuarioPorNomeGestor(String nome_gestor) {
-        return repository.findByNome(nome_gestor).orElseThrow(
-            () -> new RuntimeException("Nome não encontrado")
-        );
-    }
-
-    public Usuario buscarUsuarioPorEmailGestor(String email_gestor) {
-        return repository.findByEmail(email_gestor).orElseThrow(
+    public Usuario buscarUsuarioPorEmail(String email) {
+        return repository.findByEmailUsuario(email).orElseThrow(
             () -> new RuntimeException("Email não encontrado")
         );
     }
@@ -58,20 +44,12 @@ public class UsuarioService {
     public void deletarUsuarioPorNome(String nome) {
         repository.deleteByNome(nome);
     }
+
     @Transactional 
-    public void deletarUsuarioPorEmail(String email_usuario) {
-        repository.deleteByEmail(email_usuario);
-    }
-    @Transactional 
-    public void deletarUsuarioPorNomeGestor(String nome_gestor) {
-        repository.deleteByNome_Gestor(nome_gestor);
-    }
-    @Transactional 
-    public void deletarUsuarioPorEmailGestor(String email_gestor) {
-        repository.deleteByEmail_Gestor(email_gestor);
+    public void deletarUsuarioPorEmail(String email) {
+        repository.deleteByEmailUsuario(email);
     }
 
-    /**ESTUDAR AMANHÃ */
     public void atualizarUsuarioPorId(Integer id, Usuario usuario) {
         Usuario usuarioEntity = repository.findById(id).orElseThrow(
             () -> new RuntimeException("ID não encontrado")
@@ -81,16 +59,8 @@ public class UsuarioService {
             usuarioEntity.setNome(usuario.getNome());
         }
 
-        if (usuario.getEmail_usuario() != null) {
-            usuarioEntity.setEmail_usuario(usuario.getEmail_usuario());
-        }
-
-        if (usuario.getNome_gestor() != null) {
-            usuarioEntity.setNome_gestor(usuario.getNome_gestor());
-        }
-
-        if (usuario.getEmail_gestor() != null) {
-            usuarioEntity.setEmail_gestor(usuario.getEmail_gestor());
+        if (usuario.getEmailUsuario() != null) {
+            usuarioEntity.setEmailUsuario(usuario.getEmailUsuario());
         }
 
         repository.saveAndFlush(usuarioEntity);
