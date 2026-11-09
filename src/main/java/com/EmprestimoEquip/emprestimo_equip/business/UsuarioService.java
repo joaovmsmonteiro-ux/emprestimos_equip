@@ -51,6 +51,7 @@ public class UsuarioService {
     }
 
     public void atualizarUsuarioPorId(Integer id, Usuario usuario) {
+        // Passa o Integer diretamente, já que o ID da entidade é Integer
         Usuario usuarioEntity = repository.findById(id).orElseThrow(
             () -> new RuntimeException("ID não encontrado")
         );
@@ -61,6 +62,14 @@ public class UsuarioService {
 
         if (usuario.getEmailUsuario() != null) {
             usuarioEntity.setEmailUsuario(usuario.getEmailUsuario());
+        }
+
+        if (usuario.getNomeGestor() != null) {
+            usuarioEntity.setNomeGestor(usuario.getNomeGestor());
+        }
+
+        if (usuario.getEmailGestor() != null) {
+            usuarioEntity.setEmailGestor(usuario.getEmailGestor());
         }
 
         repository.saveAndFlush(usuarioEntity);
